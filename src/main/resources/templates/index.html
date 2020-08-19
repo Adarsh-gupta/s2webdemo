@@ -1,0 +1,33 @@
+<div th:replace="defaults :: myheader"></div>
+<div class="container">
+    <a th:href="@{/register}" style="margin: 20px 0" class="btn btn-primary">Add User</a>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">SN</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">email</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Update</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="user, iStat : ${users}">
+            <th scope="row" th:text="${iStat.index + 1}">1</th>
+            <td th:text="${user.name}">Larry</td>
+            <td th:text="${user.age}">21</td>
+            <td th:text="${user.email}">abc@gmail.com</td>
+            <td><a href="" th:href="@{/delete/{id}(id=${user.id})}" class="btn btn-danger">Delete</a></td>
+            <td><a href="" th:href="@{/update/{id}(id=${user.id})}" class="btn btn-warning">Update</a></td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+</body>
+</html>
